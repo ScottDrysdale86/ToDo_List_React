@@ -34,12 +34,12 @@ li {
 	font-weight: bold;
 }
 
-.high {
+.low {
 	background-color: green;
 	padding: 0.7rem;
 }
 
-.low {
+.high {
 	background-color: red;
 	padding: 0.7rem;
 }

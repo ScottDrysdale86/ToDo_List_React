@@ -2,40 +2,54 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
+	// Sets up pre defined tasks
 	const [tasks, setTasks] = useState([
-		{ name: "Buy Shopping", isPriority: "high" },
-		{ name: "Clean Bathroom", isPriority: "low" },
-		{ name: "Clean Bathroom", isPriority: "high" },
+		{ name: "Buy Shopping", priority: "high" },
+		{ name: "Clean Bathroom", priority: "low" },
+		{ name: "Clean Bathroom", priority: "high" },
 	]);
 
+	// destructuring the useState hook to give the variable and function
+	// for task name and priority
 	const [newTaskName, setNewTaskName] = useState("");
 	const [newTaskPriority, setNewTaskPriority] = useState("");
 
+	// creates the list elements using the map function and displays each task name
+	// uses the index key to prevent errors and assigns the css classname to the priority value
 	const taskNodes = tasks.map((task, index) => {
 		return (
-			<li key={index} className={task.isPriority}>
+			<li key={index} className={task.priority}>
 				<span>{task.name}</span>
 			</li>
 		);
 	});
 
+	// sets the new task name to the event value
 	const handleTaskNameInput = (event) => {
 		setNewTaskName(event.target.value);
 	};
-
+	// sets the new task priority to the event value
 	const handleTaskPriorityInput = (event) => {
 		setNewTaskPriority(event.target.value);
 	};
 
+	// prevents html making a post request so data is kept
+	// saves the new task by creating a copy of the tasks array
+	// checks that a new task has been entered and priority selected
+	// adds the new task to the array and sets the new array to tasks array
+	// makes both the input fireld and radio buttons blank
 	const saveNewTask = (event) => {
 		event.preventDefault();
 		const copyTasks = [...tasks];
-		copyTasks.push({ name: newTaskName, isPriority: newTaskPriority });
-		setTasks(copyTasks);
-		setNewTaskName("");
-		setNewTaskPriority("");
+		if (newTaskName !== "" && newTaskPriority !== "") {
+			copyTasks.push({ name: newTaskName, priority: newTaskPriority });
+			setTasks(copyTasks);
+			setNewTaskName("");
+			setNewTaskPriority("");
+		}
 	};
 
+	// JSX code for the layout of the page
 	return (
 		<>
 			<h1> To Do List</h1>
