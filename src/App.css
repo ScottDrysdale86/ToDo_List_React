@@ -7,10 +7,10 @@ label {
 	padding-right: 2%;
 }
 
-input {
+#new-task {
 	margin-right: 2%;
 	width: 30%;
-	height: 1.5rem;
+	height: 1.7rem;
 	border-radius: 0.2rem;
 }
 
@@ -28,6 +28,30 @@ li {
 	border: 1px solid #000;
 	width: 40%;
 	border-radius: 1rem;
+	text-align: center;
 	padding: 1%;
 	margin-bottom: 3%;
+	font-weight: bold;
+}
+
+.high {
+	background-color: green;
+	padding: 0.7rem;
+}
+
+.low {
+	background-color: red;
+	padding: 0.7rem;
+}
+
+#radio-label-high {
+	margin-left: 1rem;
+	background-color: red;
+	padding: 0.5rem;
+}
+
+#radio-label-low {
+	margin-left: 1rem;
+	padding: 0.5rem;
+	background-color: green;
 }
